@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* User Aesthetic Solid Palette 1 & 2: Desert Sun (#dc9750), Sandstone Beige (#e6d5b8), Soft Black (#1c1c1c) */
+:root {
+  --background: #f5ebd7;
+  --foreground: #1c1c1c;
+  --surface: #1c1c1c;
+  --card: #ffffff;
+  --card-foreground: #1c1c1c;
+  --primary: #dc9750;
+  --primary-foreground: #ffffff;
+  --secondary: #e6d5b8;
+  --secondary-foreground: #1c1c1c;
+  --accent: #dc9750;
+  --accent-foreground: #ffffff;
+  --muted: #e6d5b8;
+  --muted-foreground: #57534e;
+  --border: #d4c5aa;
+  --input: #f5ebd7;
+  --ring: #dc9750;
+  --radius: 0.75rem;
+  --font-sans: "Inter", -apple-system, sans-serif;
+  --success: #047857;
+  --warning: #dc9750;
+  --danger: #dc2626;
+  --info: #2563eb;
+}
+
+/* Dark Mode Overrides */
+.dark, :root.dark {
+  --background: #121212;
+  --foreground: #f2f2f2;
+  --surface: #1c1c1c;
+  --card: #1c1c1c;
+  --card-foreground: #f2f2f2;
+  --primary: #dc9750;
+  --primary-foreground: #1c1c1c;
+  --secondary: #282828;
+  --secondary-foreground: #a3a3a3;
+  --accent: #dc9750;
+  --accent-foreground: #1c1c1c;
+  --muted: #282828;
+  --muted-foreground: #a3a3a3;
+  --border: #333333;
+  --input: #121212;
+  --ring: #dc9750;
+  --success: #10b981;
+  --warning: #dc9750;
+  --danger: #ef4444;
+  --info: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.font-mono-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #dc9750, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.floating-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+.dark .floating-card {
+  background: #1c1c1c;
+  border: 1px solid #333333;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+.stroke-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: strokeDraw 2s ease forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.text-vin {
+  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
+  font-family: "JetBrains Mono", Courier New, monospace;
+}
+
+.text-code {
+  font-family: "JetBrains Mono", Courier New, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes strokeDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
